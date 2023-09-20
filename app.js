@@ -18,6 +18,7 @@ mongoose.connect(
 );
 
 app.get("/", async function (req, res) {
+  console.log(mongoose.connection.readyState);
   await User.countDocuments(function (err, count) {
     if (count == 0) {
       seedDB();
